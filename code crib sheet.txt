@@ -1,0 +1,7 @@
+code crib sheet
+
+Check for a running process 
+ps aux | grep (PID)
+
+Search for item
+grep -rnw 'path' -e 'SCHEMA.tableorfile created'

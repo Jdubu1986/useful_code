@@ -1,0 +1,13 @@
+%let name = hostname port; /* Define macro variable 'aa_ch_03' to hold the remote server hostname and port */
+%let tcpsec = _prompt_; /* Define macro variable 'tcpsec' to indicate prompting for security credentials during signon */
+
+options 
+    comamid=tcp,                /* Specify TCP/IP communication access method */
+    extendobscounter=NO,         /* Disable extended password obfuscation (usually not needed) */
+    compress=yes,                /* Enable data compression for the remote session */
+    remote=name,             /* Specify the remote server using the 'name' macro variable */
+    sasscript="P:\sas_signon",  /* Specify the path to a SAS script to be executed on the remote server upon signon */
+    netencryptalgorithm=sasproprietary; /* Specify SAS proprietary network encryption algorithm for security */
+
+*signon name cscript="tcpunix_name.scr"; /* Commented out signon using a client-side script (tcpunix_name.scr) */
+signon name; /* Sign on to the remote SAS server specified by 'name', prompting for credentials */
